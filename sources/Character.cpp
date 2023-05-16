@@ -1,5 +1,6 @@
 #include "Character.hpp"
 
+using namespace std;
 using namespace ariel;
 
     // Character::Character(int hitTarget) : _hitTarget(hitTarget){}
@@ -17,14 +18,30 @@ using namespace ariel;
     
     bool Character::isAlive() const
     {
-        return true;
+        return _hitPoint > 0;
     }
-    double Character::distance(const Character &other) const
+
+    double Character::distance(const Character* other) const
     {
-        return 1.0;
+        return getLocation().distance(other->getLocation());
     }
-    void Character::hit(const int num) {}
+
+    void Character::hit(const int num) 
+    {
+        _hitPoint -= num;
+    }
+
     std::string Character::print()  
     {
-        return "";
+        if (isAlive())
+        { 
+            return "Name: " + getName() + "\n"
+            + "Hit Points: " + to_string(getHitPoint()) + "\n"
+            + "Location: " + getLocation().print() + "\n";
+        }
+        else 
+        {
+            return "(Name: " + getName() + ")\n"
+            + "Location: " + getLocation().print() + "\n";
+        }
     }

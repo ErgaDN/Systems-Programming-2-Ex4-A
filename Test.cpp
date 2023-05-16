@@ -17,7 +17,7 @@ TEST_CASE("Point class")
 TEST_CASE("Character class")
 {
     Character a(Point(1, 2), 10, "test_1"), b(Point(1, 5), 10, "test_2");
-    CHECK(a.distance(b) == 3);
+    CHECK(a.distance(&b) == 3);
     CHECK_NOTHROW(a.hit(8));
     CHECK(a.getHitPoint() == 2);
     CHECK_THROWS(a.hit(4));

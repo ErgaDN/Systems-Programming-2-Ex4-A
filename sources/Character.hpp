@@ -24,9 +24,10 @@ namespace ariel
         std::string getName() const { return _name; }
         int getHitPoint() const { return _hitPoint; }
         Point getLocation() const { return _location; }
+        void setHitPoint(const int num) { _hitPoint = num; }
 
         bool isAlive() const;
-        double distance(const Character &other) const;
+        double distance(const Character* other) const;
         void hit(const int num);
         virtual std::string print();
     };

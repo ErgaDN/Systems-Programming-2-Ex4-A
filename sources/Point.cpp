@@ -1,18 +1,20 @@
 #include "Point.hpp"
 
-
+using namespace std;
 using namespace ariel;
     
     Point::Point(double x, double y) : _x(x), _y(y) {}
 
-    double Point::distance(const Point& p) const
+    double Point::distance(const Point& other) const
     {
-        return 1.0;
+        double dx = getX() - other.getX();
+        double dy = getY() - other.getY();
+        return sqrt(dx * dx + dy * dy);
     }
 
-    void Point::print() 
+    string Point::print() 
     {
-        
+        return "(" + to_string(getX()) + ", " + to_string(getY()) + ")";        
     }
 
     Point Point::moveTowards(const Point& source, const Point& dest, const double dis)

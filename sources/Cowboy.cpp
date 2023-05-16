@@ -9,18 +9,28 @@ Cowboy::Cowboy(const std::string &name, const Point &location)
 
 void Cowboy::shoot(Character *enemy)
 {
+    if (isAlive() && hasboolets())
+    {
+        if (enemy->getHitPoint() >= 10)
+            enemy->setHitPoint(enemy->getHitPoint() - 10);
+        else
+            enemy->setHitPoint(0);
+        _ballsCount--;
+    }
 }
 bool Cowboy::hasboolets() const
 {
-    return true;
+    return getBallsCount();
 }
+
 void Cowboy::reload()
 {
+    _ballsCount += 6;
 }
 
 std::string Cowboy::print()
 {
-    return "C";
+    return "C\n" + Character::print();
 }
 
 std::ostream &operator<<(std::ostream &os, const Cowboy &cowboy)
