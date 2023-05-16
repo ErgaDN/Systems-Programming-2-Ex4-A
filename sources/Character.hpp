@@ -18,7 +18,8 @@ namespace ariel
         // Character(int hitTarget);
         Character(const Point& location, int hitPoint, const std::string& name);
         Character(const Character& other);
-        virtual ~Character() = default;
+        // virtual ~Character() = default;
+        ~Character() = default;
 
         std::string getName() const { return _name; }
         int getHitPoint() const { return _hitPoint; }

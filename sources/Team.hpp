@@ -17,7 +17,7 @@ namespace ariel
             Character* _leader;
         public:
             Team(Character* leader);
-            ~Team() = default;
+            // ~Team() = default;
 
             void add(Character* player);
             void attack(Team* enemies);

@@ -11,7 +11,7 @@ namespace ariel
     public:
         // Point();
         Point(double x, double y);
-        // ~Point();
+        // ~Point() = default;
 
         double getX() const { return _x; }
         double getY() const { return _y; }

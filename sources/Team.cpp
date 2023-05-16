@@ -1,7 +1,7 @@
 #include "Team.hpp"
 
-namespace ariel
-{
+using namespace ariel;
+
     Team::Team(Character* leader) : _leader(leader) {}
 
     void Team::add(Character* player){}
@@ -14,4 +14,3 @@ namespace ariel
     {
         return "Team";
     }
-}

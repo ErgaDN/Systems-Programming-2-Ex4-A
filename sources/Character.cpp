@@ -1,7 +1,6 @@
 #include "Character.hpp"
 
-namespace ariel
-{
+using namespace ariel;
 
     // Character::Character(int hitTarget) : _hitTarget(hitTarget){}
 
@@ -29,4 +28,3 @@ namespace ariel
     {
         return "";
     }
-}

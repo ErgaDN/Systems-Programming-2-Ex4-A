@@ -46,8 +46,6 @@ TEST_CASE("cowboy team vs ninja team")
 
     CHECK_NOTHROW(ran->shoot(dan));
     CHECK_THROWS(ran->shoot(ran));
-
-    
 }
 
 TEST_CASE("slash function")
@@ -58,4 +56,41 @@ TEST_CASE("slash function")
         tNinja->slash(enemy);
     CHECK(enemy->getHitPoint() == 30);
     CHECK_THROWS(tNinja->slash(enemy));
+}
+
+TEST_CASE("more then 10 members in team")
+{
+    Team team(new Cowboy("A", Point(1, 1)));
+    team.add(new Cowboy("B", Point(2, 2)));
+    team.add(new Cowboy("C", Point(3, 3)));
+    team.add(new Cowboy("D", Point(4, 4)));
+    team.add(new Cowboy("E", Point(5, 5)));
+    team.add(new Cowboy("F", Point(6, 6)));
+    team.add(new Cowboy("G", Point(7, 7)));
+    team.add(new Cowboy("H", Point(8, 8)));
+    team.add(new Cowboy("I", Point(9, 9)));
+    CHECK_NOTHROW(team.add(new Cowboy("J", Point(10, 10))));
+    CHECK_THROWS(team.add(new Cowboy("K", Point(11, 11))));
+}
+
+TEST_CASE("attack the same team twice")
+{
+    Team team_A(new YoungNinja("A", Point(1, 1)));
+    team_A.add(new TrainedNinja("B", Point(2, 2)));
+
+    Team team_B(new OldNinja("C", Point(3,3)));
+
+    CHECK(team_A.stillAlive() == 2);
+    CHECK(team_A.stillAlive() == 1);
+
+    team_A.attack(&team_B);
+    CHECK_THROWS(team_A.attack(&team_B));
+}
+
+TEST_CASE("add a member team after the team was attacked")
+{
+    Team team_A(new YoungNinja("A", Point(1, 1)));
+    Team team_B(new OldNinja("B", Point(2,2)));
+    team_A.attack(&team_B);
+    CHECK_THROWS(team_B.add(new Cowboy("C", Point(3,3))));
 }

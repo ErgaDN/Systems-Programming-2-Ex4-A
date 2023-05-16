@@ -10,7 +10,7 @@ namespace ariel
         public:
             // OldNinja(Point location, int hitTarget, std::string name, int speed);
             OldNinja(const std::string& name, const Point& location);
-            ~OldNinja();
+            // ~OldNinja() = default;
     };    
 }
 

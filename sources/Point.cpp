@@ -1,8 +1,7 @@
 #include "Point.hpp"
 
 
-namespace ariel
-{
+using namespace ariel;
     
     Point::Point(double x, double y) : _x(x), _y(y) {}
 
@@ -21,4 +20,3 @@ namespace ariel
         return Point(1,1);
     }
 
-}

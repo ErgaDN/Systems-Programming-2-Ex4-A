@@ -9,7 +9,7 @@ namespace ariel
     {
         public:
             TrainedNinja(const std::string& name, const Point& location);
-            ~TrainedNinja();
+            // ~TrainedNinja() = default;
     };    
 }
 
