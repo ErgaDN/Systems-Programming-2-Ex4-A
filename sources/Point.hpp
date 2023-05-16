@@ -21,7 +21,7 @@ namespace ariel
         void setY(const double num) { _y = num; }
 
         double distance(const Point& other) const;
-        string print();
+        std::string print();
         Point moveTowards(const Point& source, const Point& dest, const double dis);
     };
 
